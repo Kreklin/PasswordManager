@@ -1,0 +1,28 @@
+{
+	"manifest_version": 2,
+
+	"name": "PasswordKrekbox",
+	"description": "Generates and saves passwords locally. Probably secure?",
+	"version": "0.6",
+	"background": {
+		"page": "background.html"
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["content.js", "passwords.js", "aesjs.js"],
+			"css": ["autocomplete.css"]
+		}
+	],
+	"permissions": [
+		"tabs",
+		"<all_urls>",
+		"contextMenus",
+		"storage"],
+	"browser_action": {
+		"default_title": "PasswordKrekbox",
+		"default_popup": "popup.html"
+	},
+	"options_page": "options.html"
+}
+
